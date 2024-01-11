@@ -7,8 +7,8 @@
 - Inicio: 11-ENE-2024
 - Portal web: https://fiee.uni.edu.pe/es/
 - Dirección: https://goo.gl/maps/VQDucSW882GDTYtg7
-- Delegado: 
-- Subdelegado: 
+- Delegado: Pedro Antonio De La Cruz Castillo
+- Subdelegado: Lesly collazos Vasquez
 
 # DOCENTE
 
@@ -21,13 +21,13 @@
 
 ## Delegado
 
-- Nombre: 
-- Correo: 
+- Nombre: Pedro Antonio De La Cruz Castillo
+- Correo: pedro.delacruz.c@uni.pe
 
 ## Subdelegado
 
-- Nombre: 
-- Correo: 
+- Nombre: Lesly collazos Vasquez
+- Correo: lesly.collazos.v@uni.pe
 
 # RECURSOS UTILES
 
