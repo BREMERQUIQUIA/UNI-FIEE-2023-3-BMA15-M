@@ -7,7 +7,7 @@ public class EjemploSerieFibonacci {
 		int n, suma, termino;
 		String serie;
 		// Datos
-		n = 5;
+		n = 4;
 		// Proceso
 		serie = obtenerSerie(n);
 		suma = obtenerSuma(n);
@@ -46,10 +46,40 @@ public class EjemploSerieFibonacci {
 	}
 
 	private static int obtenerSuma(int n) {
-		return 0;
+		//variables
+		int suma, fib1, fib2, i, temp;
+		//proceso
+		if (n <= 0) {
+			return 0;
+		}
+		suma = 0;
+		fib1 = 0;
+		fib2 = 1;
+		for (i = 1; i <= n; i++) {
+			suma += fib1;
+			temp = fib1 + fib2;
+			fib1 = fib2;
+			fib2 = temp;
+		}
+		return suma;
 	}
 
 	private static int obtenerTermino(int n) {
-		return 0;
+		//variables
+		int termino, fib1, fib2, i, temp;
+		//proceso
+		if (n <= 0) {
+			return 0;
+		}
+		termino = 0;
+		fib1 = 0;
+		fib2 = 1;
+		for (i = 1; i <= n; i++) {
+			termino = fib1;
+			temp = fib1 + fib2;
+			fib1 = fib2;
+			fib2 = temp;
+		}
+		return termino;
 	}
 }
