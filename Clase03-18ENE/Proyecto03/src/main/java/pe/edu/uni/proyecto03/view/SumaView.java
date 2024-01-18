@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pe.edu.uni.proyecto03.view;
 
-/**
- *
- * @author Ronald Martinez <rmartinezch@uni.edu.pe>
- */
+import pe.edu.uni.proyecto03.service.MateService;
+
 public class SumaView extends javax.swing.JFrame {
 
-	/**
-	 * Creates new form SumaView
-	 */
 	public SumaView() {
 		initComponents();
+		this.setLocationRelativeTo(null);
+		setEditStatus(true);
 	}
 
 	/**
@@ -46,12 +39,14 @@ public class SumaView extends javax.swing.JFrame {
       jLabel1.setText("Número 1");
 
       txtNum1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+      txtNum1.setText("PERU");
       txtNum1.setDisabledTextColor(new java.awt.Color(51, 51, 255));
 
       jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
       jLabel2.setText("Número 2");
 
       txtNum2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+      txtNum2.setText("CAMEPON");
       txtNum2.setDisabledTextColor(new java.awt.Color(51, 51, 255));
 
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -91,6 +86,7 @@ public class SumaView extends javax.swing.JFrame {
       jLabel3.setText("Suma");
 
       txtSuma.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+      txtSuma.setText("JEJEJE");
       txtSuma.setDisabledTextColor(new java.awt.Color(51, 51, 255));
       txtSuma.setEnabled(false);
 
@@ -119,13 +115,29 @@ public class SumaView extends javax.swing.JFrame {
 
       btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
       btnSalir.setText("Salir");
+      btnSalir.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSalirActionPerformed(evt);
+         }
+      });
 
       btnProcesar.setBackground(new java.awt.Color(204, 255, 204));
       btnProcesar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
       btnProcesar.setText("Procesar");
+      btnProcesar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnProcesarActionPerformed(evt);
+         }
+      });
 
       btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
       btnLimpiar.setText("Limpiar");
+      btnLimpiar.setEnabled(false);
+      btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnLimpiarActionPerformed(evt);
+         }
+      });
 
       javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
       jPanel3.setLayout(jPanel3Layout);
@@ -194,6 +206,28 @@ public class SumaView extends javax.swing.JFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
+   private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+      System.exit(0);
+   }//GEN-LAST:event_btnSalirActionPerformed
+
+   private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
+      // Variables
+		int num1, num2, suma;
+		// Datos
+		num1 = Integer.parseInt(txtNum1.getText());
+		num2 = Integer.parseInt(txtNum2.getText());
+		// Proceso
+		MateService service = new MateService();
+		suma = service.sumar(num1, num2);
+		// Reporte
+		txtSuma.setText("" + suma);
+		setEditStatus(false);
+   }//GEN-LAST:event_btnProcesarActionPerformed
+
+   private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+      setEditStatus(true);
+   }//GEN-LAST:event_btnLimpiarActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -243,4 +277,20 @@ public class SumaView extends javax.swing.JFrame {
    private javax.swing.JTextField txtNum2;
    private javax.swing.JTextField txtSuma;
    // End of variables declaration//GEN-END:variables
+
+	private void setEditStatus(boolean editStatus) {
+		// Activar controles
+		txtNum1.setEnabled(editStatus);
+		txtNum2.setEnabled(editStatus);
+		btnProcesar.setEnabled(editStatus);
+		btnLimpiar.setEnabled(!editStatus);
+		// Limpiar controles
+		if(!editStatus){
+			return;
+		}
+		txtNum1.setText("");
+		txtNum2.setText("");
+		txtSuma.setText("");
+		txtNum1.requestFocus();
+	}
 }
