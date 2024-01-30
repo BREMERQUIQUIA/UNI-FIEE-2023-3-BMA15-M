@@ -46,7 +46,7 @@ public class ArregloService {
 	public String notasToStr() {
 		return Arrays.toString(notas);
 	}
-	
+
 	public int cantidadAprobados() {
 		//Variables
 		int cantidad_aprobados = 0;
@@ -71,5 +71,36 @@ public class ArregloService {
 		}
 		//Reporte
 		return cantidad_desaprobados;
+	}
+
+	public double notaPromedio() {
+		//Variables
+		double promedio;
+		//Proceso
+		promedio = 0;
+		for (int i = 0; i < notas.length; i++) {
+			promedio = promedio + notas[i];
+		}
+		promedio /= notas.length;
+		//Reporte
+		return promedio;
+	}
+
+	public double mediana() {
+		// Variables
+		double mediana;
+		int[] auxiliar;
+		int m;
+		// Proceso
+		auxiliar  = Arrays.copyOf(notas, notas.length);
+		Arrays.sort(auxiliar);
+		m = auxiliar.length;
+		if (auxiliar.length % 2 == 0) {
+			mediana = (auxiliar[m / 2] + auxiliar[(m / 2) - 1]) / 2;
+		} else {
+			mediana = auxiliar[(m / 2)];
+		}
+		// Reporte
+		return mediana;
 	}
 }
