@@ -28,12 +28,30 @@ public class ArregloService2 {
 		int[] arregloComun = null;
 		// Proceso
 		for (int dato : arreglo1) {
-			if(existe(arreglo2, dato)){
+			if(existe(arreglo2, dato) && !existe(arregloComun,dato)){
 				arregloComun = agregarElemento(arregloComun, dato);
 			}
 		}
 		// Reporte
 		return arregloComun;
+	}
+	
+	/**
+	 * Lo que esta en arreglo1 y no esta en arreglo2.
+	 * Sin duplicados.
+	 * @return 
+	 */
+	public int[] arregloDiferencia() {
+		// Variables
+		int[] arregloDiferencia = null;
+		// Proceso
+		for (int dato : arreglo1) {
+			if(!existe(arreglo2, dato) && !existe(arregloDiferencia,dato)){
+				arregloDiferencia = agregarElemento(arregloDiferencia, dato);
+			}
+		}		
+		// Reporte
+		return arregloDiferencia;
 	}
 
 	private int[] genera(Random random, int n) {
