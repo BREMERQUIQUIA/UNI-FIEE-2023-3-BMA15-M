@@ -14,6 +14,7 @@ import pe.edu.vallegrande.revisandoconceptos.uno.ClaseA;
 public class ClaseC extends ClaseA{
 	
 	public void metodoC() {
+		this.metodoA();
 		System.out.println("n3 = " + this.n3);
 		System.out.println("n4 = " + this.n4);
 	}
