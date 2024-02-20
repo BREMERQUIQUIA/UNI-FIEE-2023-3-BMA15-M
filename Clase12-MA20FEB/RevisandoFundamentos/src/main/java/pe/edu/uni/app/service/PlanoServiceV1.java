@@ -12,7 +12,7 @@ public class PlanoServiceV1 {
 	private static int contPuntos;
 	
 	static {
-		TAMANIO = 5;
+		TAMANIO = 100;
 		puntos = new double[TAMANIO][2];
 		contPuntos = 0;
 	}
@@ -28,7 +28,9 @@ public class PlanoServiceV1 {
 	}
 
 	public double[][] getPuntos() {
-		return puntos;
+		double[][] puntosAux = new double[contPuntos][2];
+		System.arraycopy(puntos, 0, puntosAux, 0, contPuntos);
+		return puntosAux;
 	}
 	
 		
