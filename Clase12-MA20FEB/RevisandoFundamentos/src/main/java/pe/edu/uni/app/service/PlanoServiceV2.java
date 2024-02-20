@@ -31,10 +31,9 @@ public class PlanoServiceV2 {
 	}
 	
 	public PuntoDto getPuntoMasCerca(){
+		PuntoDto punto = null;
 		
-		
-		
-		
+		return punto;
 	}
 
 }
